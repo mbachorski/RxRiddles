@@ -8,7 +8,6 @@ object Riddle22 {
      *
      * Use case: Group related data while skipping over some of it.
      */
-    fun solve(source: Observable<Int>): Observable<List<Int>> {
-        TODO()
-    }
+    fun solve(source: Observable<Int>): Observable<List<Int>> =
+            source.buffer(2, 3)
 }
