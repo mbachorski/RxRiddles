@@ -1,6 +1,7 @@
 package com.vanniktech.rxriddles
 
 import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 
 object Riddle100 {
   /**
@@ -10,6 +11,6 @@ object Riddle100 {
    * Use case: Double click detection mechanism for a button.
    */
   fun solve(source: Observable<Unit>): Observable<Unit> {
-    TODO()
+    return source.buffer(300, TimeUnit.MILLISECONDS).filter{ it.size > 1}.map {  }
   }
 }

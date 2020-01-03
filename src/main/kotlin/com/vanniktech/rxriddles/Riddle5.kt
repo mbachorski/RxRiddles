@@ -1,6 +1,7 @@
 package com.vanniktech.rxriddles
 
 import io.reactivex.Observable
+import io.reactivex.functions.BiFunction
 
 object Riddle5 {
   /**
@@ -8,7 +9,5 @@ object Riddle5 {
    *
    * Use case: Two input fields in a calculator that need to be summed up and the result should be updated every time one of the inputs change.
    */
-  fun solve(first: Observable<Int>, second: Observable<Int>): Observable<Int> {
-    TODO()
-  }
+  fun solve(first: Observable<Int>, second: Observable<Int>) = Observable.combineLatest(first, second, BiFunction<Int, Int, Int> { first_, second_ -> first_ + second_ })
 }

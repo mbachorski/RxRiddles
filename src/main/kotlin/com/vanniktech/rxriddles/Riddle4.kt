@@ -9,7 +9,5 @@ object Riddle4 {
    *
    * Use case: Some button that can toggle two states. For instance a switch between White & Dark theme.
    */
-  fun solve(source: Observable<Unit>): Observable<Boolean> {
-    TODO()
-  }
+  fun solve(source: Observable<Unit>) = source.scan(false) { prev, _ -> !prev }
 }

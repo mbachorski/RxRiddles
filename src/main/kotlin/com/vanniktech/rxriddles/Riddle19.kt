@@ -1,6 +1,7 @@
 package com.vanniktech.rxriddles
 
 import io.reactivex.Observable
+import io.reactivex.ObservableEmitter
 
 object Riddle19 {
   /**
@@ -10,7 +11,14 @@ object Riddle19 {
    * Use case: Transform any listener into an Observable.
    */
   fun solve(interaction: Interaction): Observable<Int> {
-    TODO()
+    return Observable.create {
+      emitter: ObservableEmitter<Int> ->
+      interaction.listener = emitter::onNext
+
+      emitter.setCancellable{
+        interaction.listener = null
+      }
+    }
   }
 
   interface Interaction {

@@ -8,7 +8,5 @@ object Riddle1 {
    *
    * Use case: You want to transform some value to the reactive world.
    */
-  fun solve(value: Int): Observable<Int> {
-    TODO()
-  }
+  fun solve(value: Int) = Observable.just(value)
 }

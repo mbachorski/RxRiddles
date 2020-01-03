@@ -1,6 +1,7 @@
 package com.vanniktech.rxriddles
 
 import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 
 object Riddle36 {
   /**
@@ -9,6 +10,6 @@ object Riddle36 {
    * Use case: You want the user-input to trigger a search request for the entered text but only when no changes have been made for a pre-determined time to avoid unnecessary requests.
    */
   fun solve(source: Observable<String>, milliseconds: Long): Observable<String> {
-    TODO()
+    return source.debounce(milliseconds, TimeUnit.MILLISECONDS)
   }
 }

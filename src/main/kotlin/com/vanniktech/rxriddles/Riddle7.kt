@@ -8,7 +8,5 @@ object Riddle7 {
    *
    * Use case: You never want to show the same value twice.
    */
-  fun solve(source: Observable<Int>): Observable<Int> {
-    TODO()
-  }
+  fun solve(source: Observable<Int>) = source.distinct()
 }
